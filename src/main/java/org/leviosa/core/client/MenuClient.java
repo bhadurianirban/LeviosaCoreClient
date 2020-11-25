@@ -27,8 +27,11 @@ public class MenuClient {
     
     private WebTarget webTarget;
     private Client client;
-    private static final String BASE_URI = CMSServicePaths.DGRFCMS_BASE_URL+"/"+CMSServicePaths.MENU_BASE;
-
+    private String BASE_URI;
+    public MenuClient() {
+        System.out.println("gheu");
+        BASE_URI = CMSServicePaths.LEVIOSA_BASE_URL+"/"+CMSServicePaths.MENU_BASE;
+    }
     public MenuDTO getMenuTree(MenuDTO menuDTO) {
         client = javax.ws.rs.client.ClientBuilder.newClient();
         webTarget = client.target(BASE_URI).path(CMSServicePaths.GET_MENU_TREE);

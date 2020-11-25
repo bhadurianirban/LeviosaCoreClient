@@ -26,7 +26,7 @@ public class TermMetaClient {
 
     private WebTarget webTarget;
     private Client client;
-    private static final String BASE_URI = CMSServicePaths.DGRFCMS_BASE_URL+"/"+CMSServicePaths.TERM_META_BASE;
+    private static final String BASE_URI = CMSServicePaths.LEVIOSA_BASE_URL+"/"+CMSServicePaths.TERM_META_BASE;
 
     private TermMetaDTO callTermMetaService(TermMetaDTO termMetaDTO) {
         WebTarget resource = webTarget;

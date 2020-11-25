@@ -33,10 +33,10 @@ public class MediaClient {
 
     private  WebTarget webTarget;
     private  Client client;
-    private static final String BASE_URI = CMSServicePaths.DGRFCMS_BASE_URL+"/"+CMSServicePaths.MEDIA_BASE;
+    private static  String BASE_URI;
 
     public MediaClient() {
-        
+        BASE_URI = CMSServicePaths.LEVIOSA_BASE_URL+"/"+CMSServicePaths.MEDIA_BASE;
     }
 
     public MediaDTO uploadMedia(MediaDTO mediaDTO) {

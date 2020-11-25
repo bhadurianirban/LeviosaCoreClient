@@ -32,7 +32,7 @@ public class TermClient {
 
     private WebTarget webTarget;
     private Client client;
-    private static final String BASE_URI = CMSServicePaths.DGRFCMS_BASE_URL+"/"+CMSServicePaths.TERM_BASE;;
+    private static final String BASE_URI = CMSServicePaths.LEVIOSA_BASE_URL+"/"+CMSServicePaths.TERM_BASE;;
 
     private TermDTO callTermService(TermDTO termDTO) {
         WebTarget resource = webTarget;
