@@ -29,7 +29,7 @@ public class MenuClient {
     private Client client;
     private String BASE_URI;
     public MenuClient() {
-        System.out.println("gheu");
+        
         BASE_URI = CMSServicePaths.LEVIOSA_BASE_URL+"/"+CMSServicePaths.MENU_BASE;
     }
     public MenuDTO getMenuTree(MenuDTO menuDTO) {
