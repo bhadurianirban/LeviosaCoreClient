@@ -15,7 +15,7 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 import org.hedwig.cloud.response.HedwigResponseCode;
-import org.hedwig.cms.constants.CMSServicePaths;
+import org.hedwig.leviosa.constants.CMSServicePaths;
 import org.hedwig.cms.dto.MenuDTO;
 
 
@@ -28,10 +28,11 @@ public class MenuClient {
     private WebTarget webTarget;
     private Client client;
     private String BASE_URI;
+    
     public MenuClient() {
-        
-        BASE_URI = CMSServicePaths.LEVIOSA_BASE_URL+"/"+CMSServicePaths.MENU_BASE;
+        BASE_URI = CMSServicePaths.CONN_URL+"/"+CMSServicePaths.MENU_BASE;
     }
+
     public MenuDTO getMenuTree(MenuDTO menuDTO) {
         client = javax.ws.rs.client.ClientBuilder.newClient();
         webTarget = client.target(BASE_URI).path(CMSServicePaths.GET_MENU_TREE);

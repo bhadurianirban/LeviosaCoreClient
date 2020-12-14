@@ -15,7 +15,7 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 import org.hedwig.cloud.response.HedwigResponseCode;
-import org.hedwig.cms.constants.CMSServicePaths;
+import org.hedwig.leviosa.constants.CMSServicePaths;
 import org.hedwig.cms.dto.TermInstanceDTO;
 
 
@@ -27,7 +27,13 @@ public class TermInstanceClient {
 
     private WebTarget webTarget;
     private Client client;
-    private static final String BASE_URI = CMSServicePaths.LEVIOSA_BASE_URL+"/"+CMSServicePaths.TERM_INSTANCE_BASE;
+    private String BASE_URI;
+
+    public TermInstanceClient() {
+        BASE_URI = CMSServicePaths.CONN_URL+"/"+CMSServicePaths.TERM_INSTANCE_BASE;
+    }
+
+    
     
     private TermInstanceDTO callTermInstanceService(TermInstanceDTO termInstanceDTO) {
         WebTarget resource = webTarget;

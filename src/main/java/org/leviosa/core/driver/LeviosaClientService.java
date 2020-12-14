@@ -5,8 +5,8 @@
  */
 package org.leviosa.core.driver;
 
-import java.util.List;
-import java.util.Map;
+import org.hedwig.cloud.dto.HedwigConstants;
+import org.hedwig.leviosa.constants.CMSServicePaths;
 import org.leviosa.core.client.MediaClient;
 import org.leviosa.core.client.MenuClient;
 import org.leviosa.core.client.TermClient;
@@ -22,16 +22,23 @@ import org.hedwig.cms.dto.TermMetaDTO;
  *
  * @author bhaduri
  */
-public class CMSClientService {
+public class LeviosaClientService {
 
+//    public LeviosaClientService() {
+//        CMSServicePaths.CONN_URL = HedwigConstants.createConnectionUrl(CMSServicePaths.LEVIOSA_SERVER,CMSServicePaths.LEVIOSA_PORT,CMSServicePaths.LEVIOSA_BASE_URL);
+//    }
+    public LeviosaClientService(String server,String serverPort) {
+        CMSServicePaths.CONN_URL = HedwigConstants.createConnectionUrl(server,serverPort,CMSServicePaths.LEVIOSA_BASE_URL);
+    }
 
+    
 
 
     public TermMetaDTO getTermMetaList(TermMetaDTO termMetaDTO) {
 
         TermMetaClient termMetaClient = new TermMetaClient();
         termMetaDTO = termMetaClient.getTermMeta(termMetaDTO);
-        List<Map<String, Object>> termMetaFields = termMetaDTO.getTermMetaFields();
+        //List<Map<String, Object>> termMetaFields = termMetaDTO.getTermMetaFields();
         
         return termMetaDTO;
 

@@ -14,7 +14,7 @@ import org.leviosa.core.client.TermClient;
 import org.leviosa.core.client.TermInstanceClient;
 import org.leviosa.core.client.TermMetaClient;
 import org.hedwig.cloud.dto.HedwigAuthCredentials;
-import org.hedwig.cms.constants.CMSConstants;
+import org.hedwig.leviosa.constants.CMSConstants;
 import org.hedwig.cms.dto.MenuDTO;
 import org.hedwig.cms.dto.MenuNode;
 import org.hedwig.cms.dto.TermDTO;
@@ -40,7 +40,7 @@ public class CMSClientDriver {
     }
     public static void isExistsTermInstanceSlug() {
         TermInstanceDTO termInstanceDTO = new TermInstanceDTO();
-        termInstanceDTO.setAuthCredentials(AUTH_CREDENTIALS);
+        termInstanceDTO.setHedwigAuthCredentials(AUTH_CREDENTIALS);
         termInstanceDTO.setTermSlug("school");
         termInstanceDTO.setTermInstanceSlug("sp");
         TermInstanceClient termInstanceClient = new TermInstanceClient();
@@ -50,7 +50,7 @@ public class CMSClientDriver {
     public static void getTerm() {
         
         TermDTO termDTO = new TermDTO();
-        termDTO.setAuthCredentials(AUTH_CREDENTIALS);
+        termDTO.setHedwigAuthCredentials(AUTH_CREDENTIALS);
         termDTO.setTermSlug("school");
         
         TermClient termClient = new TermClient();
@@ -59,7 +59,7 @@ public class CMSClientDriver {
     }
     public static void getTermMeta() {
         TermMetaDTO termMetaDTO = new TermMetaDTO();
-        termMetaDTO.setAuthCredentials(AUTH_CREDENTIALS);
+        termMetaDTO.setHedwigAuthCredentials(AUTH_CREDENTIALS);
         termMetaDTO.setTermSlug("school");
         
         TermMetaClient termMetaClient = new TermMetaClient();
@@ -69,7 +69,7 @@ public class CMSClientDriver {
 
     public static TermInstanceDTO getTermInstance() {
         TermInstanceDTO termInstanceDTO = new TermInstanceDTO();
-        termInstanceDTO.setAuthCredentials(AUTH_CREDENTIALS);
+        termInstanceDTO.setHedwigAuthCredentials(AUTH_CREDENTIALS);
         termInstanceDTO.setTermSlug("school");
         termInstanceDTO.setTermInstanceSlug("sp");
         TermInstanceClient termInstanceGet = new TermInstanceClient();
@@ -79,7 +79,7 @@ public class CMSClientDriver {
 
     public static void saveTermInstance() {
         TermInstanceDTO termInstanceDTO = new TermInstanceDTO();
-        termInstanceDTO.setAuthCredentials(AUTH_CREDENTIALS);
+        termInstanceDTO.setHedwigAuthCredentials(AUTH_CREDENTIALS);
         Map<String, Object> termInstance = new HashMap<>();
         termInstance.put(CMSConstants.TERM_SLUG, "employee");
         termInstance.put(CMSConstants.TERM_INSTANCE_SLUG, "bhom");
@@ -98,7 +98,7 @@ public class CMSClientDriver {
 
     public static void deleteTermInstance() {
         TermInstanceDTO termInstanceDTO = new TermInstanceDTO();
-        termInstanceDTO.setAuthCredentials(AUTH_CREDENTIALS);
+        termInstanceDTO.setHedwigAuthCredentials(AUTH_CREDENTIALS);
         termInstanceDTO.setTermSlug("employee");
         termInstanceDTO.setTermInstanceSlug("bhom");
         TermInstanceClient termInstanceGet = new TermInstanceClient();
@@ -117,7 +117,7 @@ public class CMSClientDriver {
 
     public static void getMenuList() {
         MenuDTO menuDTO = new MenuDTO();
-        menuDTO.setAuthCredentials(AUTH_CREDENTIALS);
+        menuDTO.setHedwigAuthCredentials(AUTH_CREDENTIALS);
         MenuClient menuListGet = new MenuClient();
         menuDTO = menuListGet.getMenuTree(menuDTO);
         MenuNode authorisedMenuRoot = menuDTO.getRootMenuNode();

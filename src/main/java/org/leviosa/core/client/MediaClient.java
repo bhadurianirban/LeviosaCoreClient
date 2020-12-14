@@ -18,7 +18,7 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 import org.hedwig.cloud.response.HedwigResponseCode;
-import org.hedwig.cms.constants.CMSServicePaths;
+import org.hedwig.leviosa.constants.CMSServicePaths;
 import org.hedwig.cms.dto.MediaDTO;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.MultiPart;
@@ -33,10 +33,10 @@ public class MediaClient {
 
     private  WebTarget webTarget;
     private  Client client;
-    private static  String BASE_URI;
+    private String BASE_URI;
 
     public MediaClient() {
-        BASE_URI = CMSServicePaths.LEVIOSA_BASE_URL+"/"+CMSServicePaths.MEDIA_BASE;
+        BASE_URI = CMSServicePaths.CONN_URL+"/"+CMSServicePaths.MEDIA_BASE;
     }
 
     public MediaDTO uploadMedia(MediaDTO mediaDTO) {
@@ -77,7 +77,7 @@ public class MediaClient {
     }
     public MediaDTO deleteMedia(MediaDTO mediaDTO) {
         client = javax.ws.rs.client.ClientBuilder.newClient();
-        webTarget = client.target(BASE_URI).path(CMSServicePaths.DELETE_MEDIA);
+        webTarget = client.target(CMSServicePaths.CONN_URL).path(CMSServicePaths.DELETE_MEDIA);
         WebTarget resource = webTarget;
         ObjectMapper objectMapper = new ObjectMapper();
         String mediaDTOJSON = null;
