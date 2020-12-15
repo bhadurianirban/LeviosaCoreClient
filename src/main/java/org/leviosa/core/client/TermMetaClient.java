@@ -30,7 +30,7 @@ public class TermMetaClient {
     private String BASE_URI;
 
     public TermMetaClient() {
-        BASE_URI = CMSServicePaths.CONN_URL+CMSServicePaths.TERM_META_BASE;
+        BASE_URI = CMSServicePaths.CONN_URL+"/"+CMSServicePaths.TERM_META_BASE;
     }
 
     
